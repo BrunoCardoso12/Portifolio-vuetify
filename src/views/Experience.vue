@@ -2,7 +2,7 @@
   <v-app>
     <v-main class="exp-main">
       <!-- Título -->
-      <h1 class="exp-title">Experiência</h1>
+      <h1 class="exp-title">{{$t('Experiência')}}</h1>
       <v-container>
         <!-- Card -->
         <v-row justify="center" align="stretch" class="mt-4">

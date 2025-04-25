@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main class="formacao-main">
-      <h1 class="formacao-title">Formação</h1>
+      <h1 class="formacao-title">{{$t('Formação')}}</h1>
       <v-container class="formacao-container" >
         <!-- Card -->
         <v-row justify="center" align="stretch" class="mt-4">
