@@ -1,14 +1,12 @@
 <template>
   <v-app>
     <v-main class="home-main">
-      <!-- Título -->
       <h1 class="home-title">BrunoCardoso</h1>
 
-      <!-- Botões sociais -->
       <v-container class="social-container">
         <v-btn
           icon
-          href="https://linkedin.com/in/seu-usuario"
+          href="https://linkedin.com/in/brunosantoscardoso/"
           target="_blank"
           rel="noopener"
           variant="plain"
@@ -18,7 +16,7 @@
 
         <v-btn
           icon
-          href="https://instagram.com/seu-usuario"
+          href="https://instagram.com/bcardoso___/"
           target="_blank"
           rel="noopener"
           variant="plain"
@@ -28,7 +26,7 @@
 
         <v-btn
           icon
-          href="https://github.com/seu-usuario"
+          href="https://github.com/BrunoCardoso"
           target="_blank"
           rel="noopener"
           variant="plain"
@@ -38,7 +36,7 @@
 
         <v-btn
           icon
-          href="mailto:seu@email.com"
+          href="mailto:bruno-cardoso12@hotmail.com"
           target="_blank"
           rel="noopener"
           variant="plain"

@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main class="projeto-main">
-      <h1 class="projeto-title">Projetos e Atividades</h1>
+      <h1 class="projeto-title">{{$t('Projetos e Atividades')}}</h1>
 
       <v-container>
         <v-row justify="center" align="stretch" class="mt-4">

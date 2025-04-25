@@ -10,14 +10,14 @@
                   <h1>Feedback</h1>
                   <v-col cols="12">
                     <v-text-field
-                    label="Nome"
+                    :label="$t('Nome')"
                     variant="outlined"
                     class="feedback-input"
                     ></v-text-field>
                   </v-col>
                   <v-col cols="12">
                     <v-text-field
-                    label="Email"
+                    :label="$t('Email')"
                     variant="outlined"
                     class="feedback-input"
                     ></v-text-field>
@@ -26,7 +26,7 @@
                 <v-row justify="center">
                   <v-col cols="12">
                     <v-textarea 
-                    label="Mensagem"
+                    :label="$t('Mensagem')"
                     variant="outlined"
                     class="mensage-input"
                     ></v-textarea>
@@ -36,7 +36,7 @@
                     @click="$emit('submit')"
                     color="secondary"
                     >
-                    Enviar
+                    {{$t('Enviar')}}
                   </v-btn>
                 </v-row>
               </v-form>
