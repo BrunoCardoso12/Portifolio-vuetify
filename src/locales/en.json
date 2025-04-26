@@ -5,9 +5,10 @@
   "Formação": "Formation",
   "Projetos e Atividades": "Projects Activities",
   "Feedback": "Feedback",
-  "Bruno texto aqui, estudante de Engenharia de Software na Universidade Federal do Maranhão (UFMA). Sou um desenvolvedor web com experiência em Vue.js e React.js. Estou sempre buscando aprender novas tecnologias e aprimorar minhas habilidades. Além disso, sou apaixonado por resolver problemas e criar soluções inovadoras.":" Bruno text here, a student of Software Engineering at the Federal University of Maranhão (UFMA). I am a web developer with experience in Vue.js and React.js. I am always looking to learn new technologies and improve my skills. In addition, I am passionate about solving problems and creating innovative solutions.",
   "Nome": "Name",
   "Email": "Email",
   "Mensagem": "Message",
-  "Enviar": "Send"
+  "Enviar": "Send",
+  "Ver Projetos": "See Projects",
+  "sobreMim": "My name is Bruno dos Santos Cardoso, I am { idade } years old and I am a student of Analysis and Systems Development at the Federal Institute of São Paulo, Bragança Paulista campus. I am currently doing an internship as a Middleware Engineer at a technology company called Treetech."
 }

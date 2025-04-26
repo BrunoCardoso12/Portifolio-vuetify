@@ -27,9 +27,8 @@
                 target="_blank"
                 variant="text"
                 class="mt-2"
-                color="primary"
               >
-                Ver Projeto
+                {{$t('Ver Projeto')}}
               </v-btn>
             </v-card>
           </v-col>
