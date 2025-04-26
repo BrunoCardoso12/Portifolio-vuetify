@@ -26,7 +26,7 @@
 
         <v-btn
           icon
-          href="https://github.com/BrunoCardoso"
+          href="https://github.com/BrunoCardoso12"
           target="_blank"
           rel="noopener"
           variant="plain"
@@ -48,7 +48,7 @@
       <!-- Card principal -->
       <v-card class="mx-auto home-card">
         <p class="text-center py-4">
-          {{ $t('Bruno texto aqui, estudante de Engenharia de Software na Universidade Federal do Maranhão (UFMA). Sou um desenvolvedor web com experiência em Vue.js e React.js. Estou sempre buscando aprender novas tecnologias e aprimorar minhas habilidades. Além disso, sou apaixonado por resolver problemas e criar soluções inovadoras.')}}
+          {{ $t('sobreMim', { idade }) }}
         </p>
       </v-card>
     </v-main>
@@ -56,9 +56,17 @@
 </template>
 
 <script setup>
+const dataNascimento = new Date('1997-09-23');
+const hoje = new Date();
+
+let idade = hoje.getFullYear() - dataNascimento.getFullYear();
+const mes = hoje.getMonth() - dataNascimento.getMonth();
+
+if (mes < 0 || (mes === 0 && hoje.getDate() < dataNascimento.getDate())) {
+  idade--;
+}
 
 </script>
-
 <style scoped>
 .menu-btn {
   position: absolute;
