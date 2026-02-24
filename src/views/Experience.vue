@@ -38,20 +38,26 @@
 <script setup>
 const cards = [
   {
-    titulo: 'Instituto Federal SP-BRA',
-    descricao: 'Análise e Desenvolvimento de Sistemas',
+    titulo: 'Farmina Pet Foods',
+    descricao: 'Operador pleno',
+    apresentacao: '',
+    link: '',
+  },
+  {
+    titulo: 'Starclave',
+    descricao: 'Técnico em Mecatrônica',
     apresentacao: 'Bruno dos Santos Cardoso, 24 anos, estudante de Engenharia de Software na Universidade Federal do Maranhão (UFMA). Sou um desenvolvedor web com experiência em Vue.js e React.js. Estou sempre buscando aprender novas tecnologias e aprimorar minhas habilidades. Além disso, sou apaixonado por resolver problemas e criar soluções inovadoras.',
     link: '',
   },
   {
-    titulo: 'Instituto Federal SP-BRA',
-    descricao: 'Análise e Desenvolvimento de Sistemas',
+    titulo: 'Concept',
+    descricao: 'Eletricísta Industrial',
     apresentacao: 'Bruno dos Santos Cardoso, 24 anos, estudante de Engenharia de Software na Universidade Federal do Maranhão (UFMA). Sou um desenvolvedor web com experiência em Vue.js e React.js. Estou sempre buscando aprender novas tecnologias e aprimorar minhas habilidades. Além disso, sou apaixonado por resolver problemas e criar soluções inovadoras.',
     link: '',
   },
-  {
-    titulo: 'Instituto Federal SP-BRA',
-    descricao: 'Análise e Desenvolvimento de Sistemas',
+   {
+    titulo: 'Treetech',
+    descricao: 'Estágiario de Engenharia de Middleware',
     apresentacao: 'Bruno dos Santos Cardoso, 24 anos, estudante de Engenharia de Software na Universidade Federal do Maranhão (UFMA). Sou um desenvolvedor web com experiência em Vue.js e React.js. Estou sempre buscando aprender novas tecnologias e aprimorar minhas habilidades. Além disso, sou apaixonado por resolver problemas e criar soluções inovadoras.',
     link: '',
   }
