@@ -15,7 +15,7 @@
             <v-card class="formacao-card">
               <h3>{{ card.titulo }}</h3>
               <p>{{ card.descricao }}</p>
-              <p>{{ card.mensage }}</p>
+              <p>{{ card.mensagem }}</p>
               <v-btn
                 v-if="card.link"
                 :href="card.link"
