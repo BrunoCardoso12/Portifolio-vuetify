@@ -39,10 +39,12 @@ const theme = useTheme();
 
 function toggleLanguage() { 
   locale.value = locale.value === 'pt' ? 'en' : 'pt';
-  localStorage.setItem('language', locale.value) 
+  localStorage.setItem('language', locale.value);
 }
 
 function toggleTheme() {
+  theme.value = locale.value === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('theme', locale.value);
   theme.global.name.value = theme.global.name.value === 'dark' ? 'light' : 'dark';
 }
 </script>
