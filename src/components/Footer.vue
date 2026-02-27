@@ -43,7 +43,7 @@ function toggleLanguage() {
 }
 
 function toggleTheme() {
-  theme.value = locale.value === 'dark' ? 'light' : 'dark';
+  theme.value = theme.value === 'dark' ? 'light' : 'dark';
 }
 
 watch(theme(newTheme) => {
