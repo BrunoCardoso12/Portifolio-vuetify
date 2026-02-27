@@ -32,9 +32,9 @@ import { useTheme } from 'vuetify';
 import { useI18n } from 'vue-i18n';
 
 const { locale } = useI18n();
+const { theme } = useTheme();
 
 const drawer = ref(false);
-const theme = useTheme();
 
 
 function toggleLanguage() { 
@@ -44,7 +44,7 @@ function toggleLanguage() {
 
 function toggleTheme() {
   theme.value = locale.value === 'dark' ? 'light' : 'dark';
-  localStorage.setItem('theme', locale.value);
+  localStorage.setItem('theme', theme.value);
   theme.global.name.value = theme.global.name.value === 'dark' ? 'light' : 'dark';
 }
 </script>
