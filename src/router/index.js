@@ -34,11 +34,11 @@ const router = createRouter({
       name: 'projetosEAtividades',
       component: ProjetosEAtividades
     },
-    {
-      path: '/feedback',
-      name: 'feedback',
-      component: Feedback
-    },
+    // {
+    //   path: '/feedback',
+    //   name: 'feedback',
+    //   component: Feedback
+    // },
   ]
 })
 
