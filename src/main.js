@@ -19,6 +19,9 @@ import router from './router'
 
 import store from '../src/stores/store'
 
+const savedTheme = localStorage.getItem('theme')
+const initialTheme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark'
+
 const vuetify = createVuetify({
   components,
   directives,
@@ -28,7 +31,7 @@ const vuetify = createVuetify({
     sets: { mdi },
   },
   theme: {
-    defaultTheme: 'dark', // ou 'light'
+    defaultTheme: initialTheme,
     themes: {
       light: {
         dark: false,

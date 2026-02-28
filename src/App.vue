@@ -2,7 +2,7 @@
   <v-app>
     <v-navigation-drawer v-model="drawer" app>
       <!-- Conteúdo do drawer, se tiver -->
-      <Footer :drawer="drawer" />
+      <Navbar :drawer="drawer" />
     </v-navigation-drawer>
     <v-main class="main">
       <v-btn icon variant="text" class="button-menu" @click="drawer = !drawer">
@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import Footer from './components/Footer.vue'
+import Navbar from './components/Navbar.vue'
 import { ref } from 'vue'
 
 const drawer = ref(false)
