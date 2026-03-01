@@ -17,10 +17,10 @@
 
     <v-list nav dense class="text-center">
       <v-list-item to="/" :title="$t('Início')" value="home" link />
-      <v-list-item to="/about" :title="$t('Sobre')" value="about" link />
+      <v-list-item to="/academicTraining" :title="$t('Formação')" value="academicTraining" link />
+      <v-list-item to="/projects" :title="$t('Projetos e Atividades')" value="projects" link />
       <v-list-item to="/experience" :title="$t('Experiência')" value="experience" link />
-      <v-list-item to="/formacao" :title="$t('Formação')" value="formacao" link />
-      <v-list-item to="/projetosEAtividades" :title="$t('Projetos e Atividades')" value="projetoEAtividades" link />
+      <v-list-item to="/about" :title="$t('Sobre')" value="about" link />
       <!-- <v-list-item to="/feedback" :title="$t('Feedback')" value="feedback" link /> -->
   </v-list>
   </v-navigation>

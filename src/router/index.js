@@ -1,13 +1,13 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from '../pages/home.vue'
 import About from '../views/About.vue'
-import Experience from '../views/Experience.vue'
-import Formcao from '../views/Formacao.vue'
-import ProjetosEAtividades from '../views/ProjetosEAtividades.vue'
-import Feedback from '../views/Feedback.vue'
+import Experience from '../pages/experience.vue'
+import Formcao from '../pages/academicTraining.vue'
+import ProjetosEAtividades from '../pages/projects.vue'
+// import Feedback from '../pages/Feedback.vue'
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -15,24 +15,24 @@ const router = createRouter({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About
-    },
-    {
       path: '/experience',
       name: 'experience',
       component: Experience
     },
     {
-      path: '/formacao',
-      name: 'formacao',
+      path: '/academicTraining',
+      name: 'academicTraining',
       component: Formcao
     },
     {
-      path: '/projetosEAtividades',
-      name: 'projetosEAtividades',
+      path: '/projects',
+      name: 'projects',
       component: ProjetosEAtividades
+    },
+    {
+      path: '/About',
+      name: 'About',
+      component: About
     },
     // {
     //   path: '/feedback',

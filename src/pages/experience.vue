@@ -12,7 +12,7 @@
             md="6"
             lg="6"
 
-            v-for="(card, index) in cards"
+            v-for="(card, index) in cardsReversed"
             :key="index"
           >
             <v-card class="exp-card d-flex flex-column" height="100%">
@@ -72,21 +72,21 @@
 <script setup>
 import { ref } from 'vue'
 
-const PREVIEW_LIMIT = 220
-const dialog = ref(false)
-const selectedCard = ref(null)
+const PREVIEW_LIMIT = 220;
+const dialog = ref(false);
+const selectedCard = ref(null);
 
 function openDialog(card) {
-  selectedCard.value = card
-  dialog.value = true
+  selectedCard.value = card;
+  dialog.value = true;
 }
 
 function getPreview(text) {
   if (text.length <= PREVIEW_LIMIT) {
-    return text
+    return text;
   }
 
-  return `${text.slice(0, PREVIEW_LIMIT)}...`
+  return `${text.slice(0, PREVIEW_LIMIT)}...`;
 }
 
 const cards = [
@@ -112,6 +112,7 @@ const cards = [
   }
 ]
 
+const cardsReversed = [...cards].reverse();
 </script>
 
 <style scoped>
