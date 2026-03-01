@@ -1,9 +1,8 @@
 <template>
-  <v-app>
-    <v-main class="exp-main">
+  <section class="exp-main page-section">
       <!-- Título -->
-      <h1 class="exp-title">{{$t('Experiência')}}</h1>
-      <v-container>
+      <h1 class="exp-title page-title">{{$t('Experiência')}}</h1>
+      <v-container class="page-content">
         <!-- Card -->
         <v-row justify="center" align="stretch" class="mt-4">
           <v-col 
@@ -11,27 +10,31 @@
             sm="12"
             md="6"
             lg="6"
-
+            xl="4"
             v-for="(card, index) in cardsReversed"
             :key="index"
           >
             <v-card class="exp-card d-flex flex-column" height="100%">
-              <h2 class="exp-card-title">{{ card.titulo }}</h2>
-              <h3 class="exp-card-subtitle">{{ card.descricao }}</h3>
+              <h2 class="exp-card-title">{{ $t(card.titulo) }}</h2>
+              <h3 class="exp-card-subtitle">{{ $t(card.descricao) }}</h3>
 
               <p class="exp-card-text">
-                {{ getPreview(card.apresentacao) }}
+                {{ getPreview($t(card.apresentacao)) }}
+              </p>
+
+              <p class="exp-card-data">
+                {{ $t(card.data) }}
               </p>
 
               <v-spacer />
 
               <v-btn
-                v-if="card.apresentacao.length > PREVIEW_LIMIT"
+                v-if="$t(card.apresentacao).length > PREVIEW_LIMIT"
                 variant="text"
                 class="expand-btn"
                 @click="openDialog(card)"
               >
-                Ver mais
+                {{ $t('Ver mais') }}
               </v-btn>
             </v-card> 
           </v-col>
@@ -45,28 +48,31 @@
       >
         <v-card class="exp-dialog-card">
           <v-card-title class="exp-card-title">
-            {{ selectedCard?.titulo }}
+            {{ selectedCard ? $t(selectedCard.titulo) : '' }}
           </v-card-title>
 
           <v-card-subtitle class="exp-card-subtitle">
-            {{ selectedCard?.descricao }}
+            {{ selectedCard ? $t(selectedCard.descricao) : '' }}
           </v-card-subtitle>
 
           <v-card-text class="exp-card-text">
-            {{ selectedCard?.apresentacao }}
+            {{ selectedCard ? $t(selectedCard.apresentacao) : '' }}
+          </v-card-text>
+
+          <v-card-text class="exp-card-data">
+            {{ selectedCard ? $t(selectedCard.data) : '' }}
           </v-card-text>
 
           <v-card-actions>
             <v-spacer />
             <v-btn variant="text" @click="dialog = false"
             style="font-size: x-small;">
-              Fechar
+              {{ $t('Fechar') }}
             </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
-    </v-main>
-  </v-app>
+  </section>
 </template>
 
 <script setup>
@@ -93,22 +99,26 @@ const cards = [
   {
     titulo: 'Farmina Pet Foods',
     descricao: 'Operador pleno',
-    apresentacao: 'Iniciei minha trajetória profissional na Farmina como Auxiliar de Produção. Desde o início, destaquei-me pelo comprometimento, proatividade e dedicação às atividades da linha produtiva. Em pouco tempo, passei a apoiar o líder de linha em tarefas operacionais e organizacionais, sendo posteriormente designado para substituí-lo durante seu período de férias. Com aproximadamente um ano de atuação, fui promovido a Operador Júnior, assumindo a responsabilidade por uma linha de produção. Após a modernização do setor e a transição para um sistema automatizado, evoluí para o cargo de Operador Pleno, passando a operar e acompanhar o novo processo produtivo automatizado. Ao perceber que havia alcançado o limite de crescimento técnico dentro da função operacional, decidi investir na minha qualificação profissional, iniciando o curso Técnico em Mecatrônica, com foco em automação e tecnologia industrial.',
+    apresentacao: 'InfoFarmina',
+    data: '11/10/2017 - 08/11/2021',
   },
   {
     titulo: 'Starclave',
     descricao: 'Técnico em Mecatrônica II',
-    apresentacao: 'Após a conclusão do curso Técnico em Mecatrônica, ingressei na empresa Starclave, onde atuei por aproximadamente dois anos na área de manutenção técnica. Durante esse período, trabalhei com manutenção preventiva e corretiva em equipamentos hospitalares, realizando diagnósticos e intervenções nas áreas elétrica e mecânica. A função exigia alta responsabilidade, precisão técnica e disponibilidade para viagens frequentes, já que os atendimentos eram realizados in loco em diferentes localidades. A experiência proporcionou grande desenvolvimento em análise de falhas, resolução de problemas e autonomia técnica. No entanto, devido à rotina intensa de deslocamentos e longos períodos fora de casa, decidi direcionar minha carreira para a área de Tecnologia da Informação, buscando maior proximidade com a família e oportunidades alinhadas ao trabalho remoto e ao desenvolvimento de software.',
+    apresentacao: 'InfoStarclave',
+    data: '22/11/2021 - 31/07/2023',
   },
   {
     titulo: 'Concept',
     descricao: 'Eletricísta Industrial',
-    apresentacao: 'Bruno dos Santos Cardoso, 24 anos, estudante de Engenharia de Software na Universidade Federal do Maranhão (UFMA). Sou um desenvolvedor web com experiência em Vue.js e React.js. Estou sempre buscando aprender novas tecnologias e aprimorar minhas habilidades. Além disso, sou apaixonado por resolver problemas e criar soluções inovadoras.',
+    apresentacao: 'InfoConcept',
+    data: '15/08/2023 - 19/01/2025',
   },
    {
     titulo: 'Treetech',
     descricao: 'Estágiario de Engenharia de Middleware',
-    apresentacao: 'Bruno dos Santos Cardoso, 24 anos, estudante de Engenharia de Software na Universidade Federal do Maranhão (UFMA). Sou um desenvolvedor web com experiência em Vue.js e React.js. Estou sempre buscando aprender novas tecnologias e aprimorar minhas habilidades. Além disso, sou apaixonado por resolver problemas e criar soluções inovadoras.',
+    apresentacao: 'InfoTreetech',
+    data: '03/02/2025 - Atual',
   }
 ]
 
@@ -117,13 +127,7 @@ const cardsReversed = [...cards].reverse();
 
 <style scoped>
 .exp-title {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  font-size: 50px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  margin-top: 20px;
+  margin-bottom: 0;
 }
 
 .exp-card {
@@ -157,5 +161,11 @@ const cardsReversed = [...cards].reverse();
 
 .exp-dialog-card {
   border-radius: 20px;
+}
+
+.exp-card-data {
+ font-size: x-small;
+  opacity: 0.6;
+  margin-bottom: 4px;
 }
 </style>

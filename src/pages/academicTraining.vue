@@ -1,8 +1,7 @@
 <template>
-  <v-app>
-    <v-main class="formacao-main">
-      <h1 class="formacao-title">{{$t('Formação')}}</h1>
-      <v-container class="formacao-container" >
+  <section class="formacao-main page-section">
+      <h1 class="formacao-title page-title">{{$t('Formação')}}</h1>
+      <v-container class="formacao-container page-content" >
         <!-- Card -->
         <v-row justify="center" align="stretch" class="mt-4">
           <v-col 
@@ -10,23 +9,25 @@
             sm="12"
             md="6"
             lg="6"
-            v-for="(card, index) in cards"
+            xl="4"
+            v-for="(card, index) in cardsReversed"
             :key="index"
           >
             <v-card class="formacao-card d-flex flex-column" height="100%">
-              <h3 class="formacao-card-title">{{ card.titulo }}</h3>
-              <p class="formacao-card-subtitle">{{ card.descricao }}</p>
-              <p class="formacao-card-text">{{ getPreview(card.mensagem) }}</p>
+              <h3 class="formacao-card-title">{{ $t(card.titulo) }}</h3>
+              <p class="formacao-card-subtitle">{{ $t(card.descricao) }}</p>
+              <p class="formacao-card-text">{{ getPreview($t(card.mensagem)) }}</p>
+              <p class="formacao-card-subtitle-data">{{ $t(card.data) }}</p>
 
               <v-spacer />
 
               <v-btn
-                v-if="card.mensagem.length > PREVIEW_LIMIT"
+                v-if="$t(card.mensagem).length > PREVIEW_LIMIT"
                 variant="text"
                 class="expand-btn"
                 @click="openDialog(card)"
               >
-                Ver mais
+                {{ $t('Ver mais') }}
               </v-btn>
 
               <v-btn
@@ -37,7 +38,7 @@
                 class="mt-2"
                 color="primary"
               >
-                Ver Projeto
+                {{ $t('Ver Projeto') }}
               </v-btn>
             </v-card> 
           </v-col>
@@ -51,27 +52,30 @@
       >
         <v-card class="formacao-dialog-card">
           <v-card-title class="formacao-card-title">
-            {{ selectedCard?.titulo }}
+            {{ selectedCard ? $t(selectedCard.titulo) : '' }}
           </v-card-title>
 
           <v-card-subtitle class="formacao-card-subtitle">
-            {{ selectedCard?.descricao }}
+            {{ selectedCard ? $t(selectedCard.descricao) : '' }}
           </v-card-subtitle>
-
+          
           <v-card-text class="formacao-card-text">
-            {{ selectedCard?.mensagem }}
+            {{ selectedCard ? $t(selectedCard.mensagem) : '' }}
           </v-card-text>
+          
+          <v-card-subtitle class="formacao-card-subtitle-data">
+            {{ selectedCard ? $t(selectedCard.data) : '' }}
+          </v-card-subtitle>
 
           <v-card-actions>
             <v-spacer />
             <v-btn variant="text" @click="dialog = false" style="font-size: x-small;">
-              Fechar
+              {{ $t('Fechar') }}
             </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
-    </v-main>
-  </v-app>
+  </section>
 </template>
 
 <script setup>
@@ -96,53 +100,55 @@ function getPreview(text) {
 
 const cards = [
   {
-    titulo: 'SENAI - Bragança Paulista',
-    descricao: 'Curso Técnico em Mecânica de Usinagem',
-    mensagem: 'Formação voltada para processos de usinagem convencional, com ênfase na operação de torno mecânico, fresadora e retificadora. Desenvolvimento de competências em metrologia, utilizando instrumentos de medição de precisão, além da interpretação e elaboração de desenhos técnicos mecânicos. O projeto final consistiu na fabricação de um foguete mecânico com base de fixação, aplicando conceitos de usinagem, tolerâncias dimensionais e acabamento superficial.',
+    titulo: 'AT_1_TITLE',
+    descricao: 'AT_1_DESC',
+    mensagem: 'AT_1_MSG',
     link: '',
+    data: '10/01/2015 - 27/02/2016',
   },
   {
-    titulo: 'SENAI - Bragança Paulista',
-    descricao: 'Curso de Torneiro Mecânico',
-    mensagem: 'Curso complementar à formação em Mecânica de Usinagem, com foco no aprofundamento das técnicas de torneamento convencional. Desenvolvimento de habilidades na usinagem de peças fixadas entre pontas, execução de eixos excêntricos (virabrequim), polias e engrenagens de pequeno porte. Aplicação de conceitos de tolerâncias dimensionais, ajustes mecânicos e diferentes métodos de fixação e operação em torno mecânico. Ao longo do curso, foram realizados diversos projetos práticos para consolidação do aprendizado técnico.',
+    titulo: 'AT_2_TITLE',
+    descricao: 'AT_2_DESC',
+    mensagem: 'AT_2_MSG',
     link: '',
+    data: '23/01/2016 - 22/10/2016',
   },
   {
-    titulo: 'SENAI - Bragança Paulista',
-    descricao: 'Curso de Ferramentaria',
-    mensagem: 'Formação integrando os conhecimentos adquiridos em Mecânica de Usinagem e Torneiro Mecânico, com foco na fabricação e ajuste de ferramentas e moldes. Desenvolvimento de competências em usinagem de precisão, montagem e ajustes dimensionais. O projeto final foi realizado em equipe, com divisão estratégica de tarefas para otimização do prazo e eficiência do processo. O trabalho consistiu na fabricação de um molde para injeção plástica de um moedor de alho, aplicando conceitos de cavidade, refrigeração, tolerâncias e acabamento, garantindo a conformidade da peça após o resfriamento do polímero injetado.',
+    titulo: 'AT_3_TITLE',
+    descricao: 'AT_3_DESC',
+    mensagem: 'AT_3_MSG',
     link: '',
+    data: '08/10/2016 - 01/07/2017',
   },
   {
-    titulo: 'Instituto Federal de São Paulo - IFSP',
-    descricao: 'Técnico em Mecatrônica',
-    mensagem: 'Formação técnica com ênfase em eletrônica, automação industrial e programação. Durante o curso, aprofundei conhecimentos em circuitos eletrônicos, sistemas embarcados e lógica de controle. Tive meu primeiro contato com programação, iniciando com linguagem C e posteriormente Assembly, aplicadas a sistemas microcontrolados. Como projeto de conclusão de curso, desenvolvemos em equipe uma esteira seletora automatizada para separação de materiais (plástico e metal). O sistema utilizava Arduino para controle lógico e sensores para identificação dos materiais, realizando a separação automática. Também desenvolvi uma simulação no ambiente Coldsys.io, implementando a lógica de controle em linguagem Ladder (CLP), onde os produtos eram classificados por tamanho, reforçando conceitos de automação industrial e controle discreto.',
+    titulo: 'AT_4_TITLE',
+    descricao: 'AT_4_DESC',
+    mensagem: 'AT_4_MSG',
     link: '',
+    data: '10/08/2019 - 08/07/2021',
   },
   {
-    titulo: 'SENAI - Bragança Paulista',
-    descricao: 'Curso de Excel Completo',
-    mensagem: 'Capacitação voltada ao uso avançado do Microsoft Excel para organização, análise e tratamento de dados. Aprimoramento na criação de planilhas estruturadas, utilização de funções avançadas, tabelas dinâmicas e recursos de análise para manipulação de grandes volumes de informações. O curso contribuiu para otimizar processos, aumentar a produtividade e melhorar a tomada de decisão por meio de relatórios mais organizados e eficientes.',
+    titulo: 'AT_5_TITLE',
+    descricao: 'AT_5_DESC',
+    mensagem: 'AT_5_MSG',
     link: '',
+    data: '08/02/2025 - 19/07/2025',
   },
   {
-    titulo: 'Instituto Federal de São Paulo - IFSP',
-    descricao: 'Análise e Desenvolvimento de Sistemas',
-    mensagem: 'Graduação tecnológica com foco em desenvolvimento de software, arquitetura de sistemas e boas práticas de programação. Durante o curso, adquiri experiência prática com diferentes linguagens e tecnologias, aplicando conceitos de desenvolvimento front-end, back-end e mobile. Como projeto em equipe, desenvolvemos um fórum de livros, colocando em prática os conhecimentos adquiridos ao longo da formação. A aplicação contou com front-end em Vue.js, versão mobile desenvolvida em Flutter e back-end implementado em Java, utilizando arquitetura orientada a serviços e integração entre APIs. O projeto envolveu modelagem de banco de dados, autenticação de usuários e organização de conteúdo dinâmico.',
+    titulo: 'AT_6_TITLE',
+    descricao: 'AT_6_DESC',
+    mensagem: 'AT_6_MSG',
     link: '',
+    data: '10/08/2023 - Atual',
   },
 ]
+
+const cardsReversed = [...cards].reverse();
 </script>
 
 <style scoped>
 .formacao-title {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  font-size: 50px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  margin-top: 20px;
+  margin-bottom: 0;
 }
 
 .formacao-card {
@@ -176,5 +182,11 @@ const cards = [
 
 .formacao-dialog-card {
   border-radius: 20px;
+}
+
+.formacao-card-subtitle-data {
+  font-size: x-small;
+  opacity: 0.6;
+  margin-bottom: 4px;
 }
 </style>

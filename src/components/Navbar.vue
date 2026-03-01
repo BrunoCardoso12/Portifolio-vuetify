@@ -20,7 +20,7 @@
       <v-list-item to="/academicTraining" :title="$t('Formação')" value="academicTraining" link />
       <v-list-item to="/projects" :title="$t('Projetos e Atividades')" value="projects" link />
       <v-list-item to="/experience" :title="$t('Experiência')" value="experience" link />
-      <v-list-item to="/about" :title="$t('Sobre')" value="about" link />
+      <v-list-item :title="$t('Sobre')" @click.stop="openAbout" />
       <!-- <v-list-item to="/feedback" :title="$t('Feedback')" value="feedback" link /> -->
   </v-list>
   </v-navigation>
@@ -30,12 +30,15 @@
 import { ref, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useTheme } from 'vuetify';
+import { useThemeStore } from '../stores/theme';
 
-const { locale } = useI18n();
+const emit = defineEmits(['open-about']);
+
+const { locale } = useI18n({ useScope: 'global' });
 const vuetifyTheme = useTheme();
+const themeStore = useThemeStore();
 
 const drawer = ref(false);
-const theme = ref(localStorage.getItem('theme') || vuetifyTheme.global.name.value);
 
 
 function toggleLanguage() { 
@@ -44,24 +47,21 @@ function toggleLanguage() {
 }
 
 function toggleTheme() {
-  const newTheme = theme.value === 'dark' ? 'light' : 'dark';
-  theme.value = newTheme;
-  vuetifyTheme.global.name.value = newTheme;
-  localStorage.setItem('theme', newTheme);
+  themeStore.toggle(vuetifyTheme);
+}
+
+function openAbout() {
+  emit('open-about');
 }
 
 onMounted(() => {
   const savedLanguage = localStorage.getItem('language');
-  const savedTheme = localStorage.getItem('theme');
 
   if (savedLanguage) {
     locale.value = savedLanguage;
   }
 
-  if (savedTheme === 'light' || savedTheme === 'dark') {
-    theme.value = savedTheme;
-    vuetifyTheme.global.name.value = savedTheme;
-  }
+  themeStore.initialize(vuetifyTheme);
 });
 </script>
 

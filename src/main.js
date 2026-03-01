@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createPinia } from 'pinia'
+import './assets/layout.css'
 
 // Vuetify
 import 'vuetify/styles'
@@ -59,6 +60,7 @@ const savedLang = localStorage.getItem('language') || 'pt';
 
 const i18n = createI18n({
   legacy: false,
+  globalInjection: true,
   locale: savedLang,
   fallbackLocale: 'en',
   messages: { en, pt },

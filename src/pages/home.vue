@@ -1,6 +1,6 @@
 <template>
   <v-container class="home-main">
-    <h1 class="home-title">BrunoCardoso</h1>
+    <h1 class="home-title page-title">BrunoCardoso</h1>
 
     <v-container class="social-container">
       <v-btn
@@ -45,7 +45,7 @@
     </v-container>
 
     <v-row justify="center">
-      <v-col cols="12" sm="12" md="8" lg="6">
+      <v-col cols="12" sm="12" md="8" lg="6" xl="4">
         <v-card class="mx-auto home-card">
           <p class="text-center py-4">
             {{ $t('sobreMim', { idade: age }) }}
@@ -69,6 +69,11 @@ if (mes < 0 || (mes === 0 && now.getDate() < dateOfBirth.getDate())) {
 
 </script>
 <style scoped>
+.home-main {
+  display: flex;
+  flex-direction: column;
+  padding: 200px 20px;
+}
 .menu-btn {
   position: absolute;
   top: 20px;
@@ -76,11 +81,7 @@ if (mes < 0 || (mes === 0 && now.getDate() < dateOfBirth.getDate())) {
 }
 
 .home-title {
-  text-align: center;
-  font-size: 60px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  margin-top: 120px;
+  margin-bottom: 0;
 }
 
 .social-container {

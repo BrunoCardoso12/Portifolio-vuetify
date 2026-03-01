@@ -1,0 +1,19 @@
+.page-section {
+  padding-top: 20px;
+}
+
+.page-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  margin: 0 0 20px;
+}
+
+.page-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
