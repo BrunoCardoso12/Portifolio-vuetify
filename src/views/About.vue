@@ -1,7 +1,7 @@
 <template>
-  <v-dialog :model-value="modelValue" max-width="900" @update:model-value="emit('update:modelValue', $event)">
+  <v-dialog :model-value="modelValue" width="600" @update:model-value="emit('update:modelValue', $event)">
     <v-card class="about-card">
-      <v-card-title class="about-title">BrunoCardoso</v-card-title>
+      <v-card-title class="about-title">Minha trajetória</v-card-title>
 
       <v-card-text>
         <p class="text-center about-text">{{ $t('AboutStory') }}</p>
@@ -38,7 +38,8 @@ const emit = defineEmits(['update:modelValue'])
 }
 
 .about-text {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: small;
+  opacity: 0.6;
+  font-family: 'Roboto', sans-serif;
 }
 </style>
