@@ -1,5 +1,5 @@
 <template>
-  <v-navigation v-model="" class="navegation">
+  <v-navigation v-model="drawer" class="navegation">
     <v-container class="-top-bar">
       <v-btn icon @click="toggleLanguage" variant="plain" aria-label="Mudar idioma">
         <v-icon size="20" >mdi-translate</v-icon>
@@ -38,7 +38,7 @@ const { locale } = useI18n({ useScope: 'global' });
 const vuetifyTheme = useTheme();
 const themeStore = useThemeStore();
 
-const drawer = ref(true);
+const drawer = ref(window.innerWidth > 1264);
 
 
 function toggleLanguage() { 
