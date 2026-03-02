@@ -1,6 +1,6 @@
 <template>
-  <v-navigation v-model="drawer" class="navegation">
-    <v-container class="drawer-top-bar">
+  <v-navigation v-model="" class="navegation">
+    <v-container class="-top-bar">
       <v-btn icon @click="toggleLanguage" variant="plain" aria-label="Mudar idioma">
         <v-icon size="20" >mdi-translate</v-icon>
       </v-btn>
@@ -38,7 +38,7 @@ const { locale } = useI18n({ useScope: 'global' });
 const vuetifyTheme = useTheme();
 const themeStore = useThemeStore();
 
-const drawer = ref(false);
+const drawer = ref(true);
 
 
 function toggleLanguage() { 
@@ -70,7 +70,7 @@ onMounted(() => {
   background-color: var(--v-theme-background);
   color: var(--v-theme-background);
 }
-.drawer-top-bar {
+.-top-bar {
   display: flex;
   justify-content: space-between;
   padding: 10px 8px;
