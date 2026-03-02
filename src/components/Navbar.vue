@@ -1,5 +1,9 @@
 <template>
-  <v-navigation v-model="drawer" class="navegation">
+  <v-navigation-drawer v-model="drawer"
+    :permanent="lgAndUp"
+    :temporary="!lgAndUp" 
+    class="navegation"
+  >
     <v-container class="-top-bar">
       <v-btn icon @click="toggleLanguage" variant="plain" aria-label="Mudar idioma">
         <v-icon size="20" >mdi-translate</v-icon>
@@ -23,13 +27,13 @@
       <v-list-item :title="$t('Sobre')" @click.stop="openAbout" />
       <!-- <v-list-item to="/feedback" :title="$t('Feedback')" value="feedback" link /> -->
   </v-list>
-  </v-navigation>
+  </v-navigation-drawer>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useTheme } from 'vuetify';
+import { useDisplay, useTheme } from 'vuetify';
 import { useThemeStore } from '../stores/theme';
 
 const emit = defineEmits(['open-about']);
@@ -37,9 +41,13 @@ const emit = defineEmits(['open-about']);
 const { locale } = useI18n({ useScope: 'global' });
 const vuetifyTheme = useTheme();
 const themeStore = useThemeStore();
+const { lgAndUp } = useDisplay();
 
-const drawer = ref(window.innerWidth > 1264);
 
+const drawer = ref(true);
+watch(lgAndUp, (val) => {
+  drawer.value = val
+});
 
 function toggleLanguage() { 
   locale.value = locale.value === 'pt' ? 'en' : 'pt';
