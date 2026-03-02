@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="drawer"
+  <v-navigation v-model="drawer"
     :permanent="lgAndUp"
     :temporary="!lgAndUp" 
     class="navegation"
@@ -27,7 +27,7 @@
       <v-list-item :title="$t('Sobre')" @click.stop="openAbout" />
       <!-- <v-list-item to="/feedback" :title="$t('Feedback')" value="feedback" link /> -->
   </v-list>
-  </v-navigation-drawer>
+  </v-navigation>
 </template>
 
 <script setup>
