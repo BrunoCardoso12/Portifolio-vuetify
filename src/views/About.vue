@@ -1,7 +1,7 @@
 <template>
   <v-dialog :model-value="modelValue" width="600" @update:model-value="emit('update:modelValue', $event)">
     <v-card class="about-card">
-      <v-card-title class="about-title">Minha trajetória</v-card-title>
+      <v-card-title class="about-title">{{ $t('Minha Trajetória') }}</v-card-title>
 
       <v-card-text>
         <p class="text-center about-text">{{ $t('AboutStory') }}</p>

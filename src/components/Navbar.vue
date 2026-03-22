@@ -1,5 +1,5 @@
 <template>
-  <v-navigation v-model="drawer" class="navegation">
+  <div class="navegation">
     <v-container class="drawer-top-bar">
       <v-btn icon @click="toggleLanguage" variant="plain" aria-label="Mudar idioma">
         <v-icon size="20" >mdi-translate</v-icon>
@@ -16,14 +16,14 @@
     />
 
     <v-list nav dense class="text-center">
-      <v-list-item to="/" :title="$t('Início')" value="home" link />
+      <v-list-item to="/home" :title="$t('Início')" value="home" link />
       <v-list-item to="/academicTraining" :title="$t('Formação')" value="academicTraining" link />
       <v-list-item to="/projects" :title="$t('Projetos e Atividades')" value="projects" link />
       <v-list-item to="/experience" :title="$t('Experiência')" value="experience" link />
       <v-list-item :title="$t('Sobre')" @click.stop="openAbout" />
       <!-- <v-list-item to="/feedback" :title="$t('Feedback')" value="feedback" link /> -->
   </v-list>
-  </v-navigation>
+  </div>
 </template>
 
 <script setup>

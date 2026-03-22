@@ -17,7 +17,7 @@
               <h3 class="formacao-card-title">{{ $t(card.titulo) }}</h3>
               <p class="formacao-card-subtitle">{{ $t(card.descricao) }}</p>
               <p class="formacao-card-text">{{ getPreview($t(card.mensagem)) }}</p>
-              <p class="formacao-card-subtitle-data">{{ $t(card.data) }}</p>
+              <p class="formacao-card-subtitle-data">{{ card.data }}</p>
 
               <v-spacer />
 

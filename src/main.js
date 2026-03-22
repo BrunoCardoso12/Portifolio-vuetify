@@ -37,10 +37,10 @@ const vuetify = createVuetify({
       light: {
         dark: false,
         colors: {
-          background: '#F0F2F5',
-          surface: '#FFFFFF ',
-          primary: '#FFFFFF',
-          secondary: '#4CAF50',
+          background: '#FDF4FF',
+          surface: '#F5EEFF',
+          primary: '#9333EA',
+          secondary: '#280D40',
         },
       },
       dark: {
@@ -49,7 +49,7 @@ const vuetify = createVuetify({
           background: 'rgba(40, 13, 64, 1)',
           surface: 'rgba(61, 54, 54, 1)',
           primary: 'rgba(61, 54, 54, 1)',
-          secondary: 'white',
+          secondary: '#FFFFFF',
         },
       },
     },

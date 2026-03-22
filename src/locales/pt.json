@@ -24,7 +24,7 @@
   "Starclave": "Starclave",
   "Técnico em Mecatrônica II": "Técnico em Mecatrônica II",
   "Concept": "Concept",
-  "Eletricísta Industrial": "Eletricísta Industrial",
+  "Eletricísta Industrial": "Eletricista Industrial",
   "Treetech": "Treetech",
   "Estágiario de Engenharia de Middleware": "Estágiario de Engenharia de Middleware",
   "AT_1_TITLE": "SENAI - Bragança Paulista",
@@ -50,5 +50,8 @@
   "PROJECT_2_TITLE": "Maratona InterIF VII",
   "PROJECT_2_DESC": "Também participei da Maratona InterIF VII, realizada no Instituto Federal de São Carlos. A competição funciona com equipes de três integrantes utilizando apenas uma máquina por grupo. Durante a maratona, os times precisam resolver 10 desafios de programação no menor tempo possível. A pontuação é baseada na quantidade de exercícios resolvidos corretamente e no tempo de submissão — quanto mais rápido e preciso, maior a pontuação. A experiência foi extremamente enriquecedora. Trabalhar sob pressão, tomar decisões rápidas e validar a lógica em tempo real trouxe uma sensação única de desafio e superação. A cada problema resolvido, recebíamos um balão como símbolo de acerto, o que tornava o ambiente ainda mais motivador e competitivo. Além do aspecto técnico, a maratona fortaleceu minhas habilidades de trabalho em equipe, comunicação estratégica e raciocínio lógico em situações de alta pressão.",
   "PROJECT_3_TITLE": "Projeto Pokédex em Vue.js",
-  "PROJECT_3_DESC": "Assim que ingressei na Treetech, fui incentivado a aprofundar meus conhecimentos na ferramenta utilizada no desenvolvimento front-end da empresa: Vue 3, juntamente com o framework Vuetify. Para acelerar meu aprendizado, realizei um curso focado em Vue e desenvolvi um projeto prático: uma Pokédex. O objetivo foi consolidar os conceitos aprendidos e aplicar na prática recursos como componentização, reatividade, consumo de API, organização de estado e estruturação de layout com Vuetify. O projeto foi muito importante para minha evolução, pois me permitiu utilizar diversas ferramentas e boas práticas que hoje fazem parte do meu dia a dia no trabalho, tornando meu desenvolvimento mais organizado, produtivo e eficiente."
+  "PROJECT_3_DESC": "Assim que ingressei na Treetech, fui incentivado a aprofundar meus conhecimentos na ferramenta utilizada no desenvolvimento front-end da empresa: Vue 3, juntamente com o framework Vuetify. Para acelerar meu aprendizado, realizei um curso focado em Vue e desenvolvi um projeto prático: uma Pokédex. O objetivo foi consolidar os conceitos aprendidos e aplicar na prática recursos como componentização, reatividade, consumo de API, organização de estado e estruturação de layout com Vuetify. O projeto foi muito importante para minha evolução, pois me permitiu utilizar diversas ferramentas e boas práticas que hoje fazem parte do meu dia a dia no trabalho, tornando meu desenvolvimento mais organizado, produtivo e eficiente.",
+  "Minha Tragetória": "Minha Trajetória",
+  "Desligando a por inatividade...": "Desligando a por inatividade...",
+  "Encontre o interruptor...": "Encontre o interruptor..."
 }
