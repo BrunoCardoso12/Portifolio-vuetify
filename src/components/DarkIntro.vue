@@ -14,6 +14,7 @@
         :class="{ 'switch-near': isNear, 'switch-on': flashing }"
         :style="{ left: switchPos.x + 'px', top: switchPos.y + 'px' }"
         @click="turnOn"
+        @touchend.prevent="turnOn"
       >
         <div class="switch-label">{{ isNear ? 'Ligar?' : '' }}</div>
         <div class="switch-btn">
@@ -45,10 +46,14 @@ const showHint = ref(false)
 
 const mouse = ref({ x: -999, y: -999 })
 
-// Posição aleatória do interruptor (evita bordas)
+// Posição aleatória do interruptor (evita bordas e funciona em telas pequenas)
+const minX = 120
+const minY = 120
+const maxX = Math.max(minX + 1, window.innerWidth  - 180)
+const maxY = Math.max(minY + 1, window.innerHeight - 180)
 const switchPos = {
-  x: Math.floor(Math.random() * (window.innerWidth  - 300)) + 150,
-  y: Math.floor(Math.random() * (window.innerHeight - 200)) + 100,
+  x: Math.floor(Math.random() * (maxX - minX)) + minX,
+  y: Math.floor(Math.random() * (maxY - minY)) + minY,
 }
 
 const SWITCH_RADIUS = 80  // distância que revela o interruptor
@@ -103,6 +108,19 @@ function onMouseMove(e) {
   mouse.value.y = e.clientY
 }
 
+function onTouchMove(e) {
+  if (!e.touches.length) return
+  e.preventDefault()
+  mouse.value.x = e.touches[0].clientX
+  mouse.value.y = e.touches[0].clientY
+}
+
+function onTouchStart(e) {
+  if (!e.touches.length) return
+  mouse.value.x = e.touches[0].clientX
+  mouse.value.y = e.touches[0].clientY
+}
+
 function turnOn() {
   if (flashing.value) return
   flashing.value = true
@@ -138,6 +156,8 @@ onMounted(() => {
 
   visible.value = true
   window.addEventListener('mousemove', onMouseMove)
+  window.addEventListener('touchmove', onTouchMove, { passive: false })
+  window.addEventListener('touchstart', onTouchStart, { passive: true })
   window.addEventListener('resize', onResize)
 
   // Aguarda o canvas montar
@@ -149,6 +169,8 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('mousemove', onMouseMove)
+  window.removeEventListener('touchmove', onTouchMove)
+  window.removeEventListener('touchstart', onTouchStart)
   window.removeEventListener('resize', onResize)
   cancelAnimationFrame(animFrame)
   clearTimeout(hintTimer)
@@ -168,6 +190,7 @@ onUnmounted(() => {
   position: absolute;
   inset: 0;
   display: block;
+  touch-action: none;
 }
 
 /* ---- Interruptor ---- */
